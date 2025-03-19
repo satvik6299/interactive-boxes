@@ -2,6 +2,7 @@
 
 This project implements three interactive boxes based on the provided design. When clicked, each box expands to show color and size options.
 
+Deployed at https://satvik6299.github.io/interactive-boxes/
 ## Features
 
 - Three interactive boxes that expand when clicked
