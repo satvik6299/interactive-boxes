@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #ff6b8b;
+    font-weight: 500;
+}
+
+.box {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.box.active {
+    border: 2px solid #ff6b8b;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.selection-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selection-area input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.selection-area input[type="radio"]:checked {
+    border-color: #ff6b8b;
+}
+
+.selection-area input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #ff6b8b;
+    border-radius: 50%;
+}
+
+.selection-area label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.discount {
+    background-color: #ff6b8b;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.price-area {
+    text-align: right;
+}
+
+.current-price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.original-price {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.box-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 15px;
+    position: relative;
+}
+
+.box.active .box-content {
+    max-height: 300px;
+    padding-bottom: 15px;
+}
+
+.standard-price {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.options-container {
+    margin-top: 10px;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-number {
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.option-label {
+    font-size: 14px;
+    color: #333;
+    margin-right: 5px;
+    width: 40px;
+}
+
+.option-selector {
+    margin-right: 15px;
+}
+
+.option-selector select {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    min-width: 70px;
+}
+
+.most-popular {
+    position: absolute;
+    right: 0;
+    top: -33px; /* Position it properly on the top edge */
+    background-color: #ff6b8b;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 0 0 0 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.delivery {
+    color: #ff6b8b;
+    font-size: 14px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    background-color: #ff6b8b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e05a79;
+}
+
+.plus-icon {
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.powered-by {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Fixing the layout issue with the options */
+.option-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.option-label {
+    flex: 0 0 40px;
+}
+
+.option-selector {
+    flex: 0 0 80px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .box-header {
+        padding: 10px;
+    }
+    
+    .selection-area label {
+        font-size: 14px;
+    }
+    
+    .current-price {
+        font-size: 14px;
+    }
+    
+    .add-to-cart-btn {
+        padding: 12px;
+    }
+} 
